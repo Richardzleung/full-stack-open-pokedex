@@ -26,5 +26,11 @@ jobs:
       - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
+      - name: Say Hello!
         run: echo Hello, world!
+        
+      - name: What time is it?
+        run: date 
+        
+      - name: directory content
+        run: ls -l
