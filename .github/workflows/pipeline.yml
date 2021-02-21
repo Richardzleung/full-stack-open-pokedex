@@ -32,7 +32,7 @@ jobs:
         uses: akhileshns/heroku-deploy@v3.11.10 
         with: 
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: https://my-app-full-stack-open.herokuapp.com/
+          heroku_app_name: my-app-full-stack-open
           heroku_email: richardzleung@gmail.com
         
           
