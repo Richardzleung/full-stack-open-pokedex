@@ -1,1 +1,1 @@
-web: npm run start-conbo
+web: npm run start-prod
