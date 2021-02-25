@@ -1,1 +1,1 @@
-web: npm run start-conboa
+web: npm run start-prod
