@@ -34,7 +34,7 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: my-app-full-stack-open
           heroku_email: richardzleung@gmail.com
-          healthcheck: "my-app-full-stack-open.herokuapp.com/health"
+          healthcheck: "https://my-app-full-stack-open.herokuapp.com/health"
           checkstring: "ok"
         
           
