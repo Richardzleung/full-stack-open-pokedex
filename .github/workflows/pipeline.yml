@@ -55,9 +55,6 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
         if: ${{ failure() }} 
-  bump_tag:
-    runs-on: ubuntu-18.04
-    steps:
       - uses: actions/checkout@v2
       - name: Bump version and push tag
         if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message, ' '),'#skip') }} 
