@@ -57,6 +57,7 @@ jobs:
         if: ${{ failure() }} 
   bump_tag:
     runs-on: ubuntu-18.04
+    if: ${{ success() }}
     steps:
       - uses: actions/checkout@v2
       - name: Bump version and push tag
