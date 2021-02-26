@@ -41,5 +41,9 @@ jobs:
           heroku_email: richardzleung@gmail.com
           healthcheck: "https://my-app-full-stack-open.herokuapp.com/health"
           rollbackonhealthcheckfailed: true
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.33.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         
           
