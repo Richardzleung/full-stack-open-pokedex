@@ -31,7 +31,6 @@ jobs:
           command: npm run test:e2e
           start: npm run start-prod
           wait-on: 'http://localhost:5000'
-       
       - name: deploy
         if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message, ' '),'#skip') }}
         uses: akhileshns/heroku-deploy@v3.11.10 
@@ -41,6 +40,21 @@ jobs:
           heroku_email: richardzleung@gmail.com
           healthcheck: "https://my-app-full-stack-open.herokuapp.com/health"
           rollbackonhealthcheckfailed: true
+      - name: sucess push to slack
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
+        if: ${{ success() }} 
+      - name: error push to slack
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took 
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
+        if: ${{ failure() }} 
   bump_tag:
     runs-on: ubuntu-18.04
     steps:
