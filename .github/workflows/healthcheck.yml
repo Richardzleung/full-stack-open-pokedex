@@ -1,7 +1,7 @@
 name: Health Check
 on:
   schedule: 
-    - cron: '30 15 * * FRI'
+    - cron: '0 1 * * FRI'
   workflow_dispatch:
 
 jobs:
