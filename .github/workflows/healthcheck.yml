@@ -2,7 +2,6 @@ name: Health Check
 on:
   schedule: 
     - cron: '0 1 * * FRI'
-  workflow_dispatch:
 
 jobs:
   build:
